@@ -23,7 +23,7 @@ jobs:
 
     - name: Set configuration
       run: |
-        ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make imx_v8_defconfig
+        ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make imx93frdm_defconfig
 
     - name: Build kernel
       run: |
