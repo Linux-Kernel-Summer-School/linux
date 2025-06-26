@@ -15,6 +15,16 @@
 		stdout-path = &lpuart1;
 	};
 
+	lkss-bus {
+		compatible = "simple-bus";
+
+		gpio-led {
+			compatible = "lkss,gpio-led";
+			gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
+			status = "disabled";
+		};
+	};
+
 	reserved-memory {
 		#address-cells = <2>;
 		#size-cells = <2>;

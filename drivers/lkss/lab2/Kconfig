@@ -1,4 +1,11 @@
 # SPDX-License-Identifier: GPL-2.0-only
 
 if LKSS_DRIVERS_LAB2
+
+config LKSS_DRIVERS_LAB2_EX3
+	tristate "Lab2 Ex3 - Character device LED driver using gpiod"
+	default n
+	help
+	  Compile Lab2 Ex3: Character device LED driver using gpiod
+
 endif # LKSS_DRIVERS_LAB2
