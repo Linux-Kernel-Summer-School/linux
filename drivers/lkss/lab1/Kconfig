@@ -4,8 +4,22 @@ if LKSS_DRIVERS_LAB1
 
 config LKSS_DRIVERS_LAB1_EX1
 	tristate "Lab 1 Ex 1 - Hello World"
-	default n
 	help
 	  Compile Lab 1 exercise 1 - "Hello World"
+
+config LKSS_DRIVERS_LAB1_EX2
+	tristate "Lab 1 Ex 2 - Ooopses and panic"
+	help
+	  Compile Lab 1 exercise 2 - "Oopses and panic"
+
+config LKSS_DRIVERS_LAB1_EX3
+	tristate "Lab 1 Ex 3 - Timer"
+	help
+	  Compile Lab 1 exercise 3 - "Timers"
+
+config LKSS_DRIVERS_LAB1_EX4
+	tristate "Lab 1 Ex 4 - Platform Driver"
+	help
+	  Compile Lab 1 exercise 4 - "Platform driver"
 
 endif # LKSS_DRIVERS_LAB1
