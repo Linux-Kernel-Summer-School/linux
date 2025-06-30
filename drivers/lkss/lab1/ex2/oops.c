@@ -4,20 +4,23 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 
-static int __init hello_init(void)
+static int __init lkss_oops_init(void)
 {
-	printk(KERN_INFO "Hello from kernel space!\n");
+	int *p = NULL;
+
+	*p = 0x42;
+
 	return 0;
 }
 
-static void __exit hello_exit(void)
+static void __exit lkss_oops_exit(void)
 {
 	pr_info("Goodbye from kernel space!\n");
 }
 
-module_init(hello_init);
-module_exit(hello_exit);
+module_init(lkss_oops_init);
+module_exit(lkss_oops_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("NXP Linux Kernel Summer School");
-MODULE_DESCRIPTION("A simple Hello World kernel module");
+MODULE_DESCRIPTION("A simple module to demonstrate an OOPS");
