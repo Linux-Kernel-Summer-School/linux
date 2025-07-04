@@ -8,4 +8,11 @@ config LKSS_DRIVERS_LAB2_EX3
 	help
 	  Compile Lab2 Ex3: Character device LED driver using gpiod
 
+config LKSS_DRIVERS_LAB2_EX4
+	tristate "Lab2 Ex4 - Character device LED driver with ioctl() commands"
+	default n
+	help
+	  Compile Lab2 Ex4: Character device LED driver
+	  using gpiod and ioctl() commands
+
 endif # LKSS_DRIVERS_LAB2
