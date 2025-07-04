@@ -54,9 +54,30 @@
 			status = "disabled";
 		};
 
+		buzzer {
+			compatible = "lkss,buzzer";
+			pwms = <&tpm3 0 100000 0>;
+			status = "disabled";
+		};
+
 		gpio-led {
 			compatible = "lkss,gpio-led";
 			gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
+			status = "disabled";
+		};
+
+		led-dimmer {
+			compatible = "lkss,led-dimmer";
+			pwms = <&tpm3 0 100000 0>;
+			status = "disabled";
+		};
+
+		pwm-rgb-led {
+			compatible = "lkss,pwm-rgb-led";
+			pwms = <&tpm3 0 100000 0>,
+			       <&tpm3 1 100000 0>,
+			       <&tpm3 2 100000 0>;
+			pwm-names = "red", "blue", "green";
 			status = "disabled";
 		};
 
