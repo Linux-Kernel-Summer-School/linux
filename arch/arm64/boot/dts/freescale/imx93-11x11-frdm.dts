@@ -35,7 +35,7 @@
 		button {
 			compatible = "lkss,gpio-button";
 			gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>; // Example: GPIO2.IO[3]
-			status = "okay";
+			status = "disabled";
 		};
 
 		button-led {
@@ -43,14 +43,14 @@
 			button-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;// Example: GPIO2.IO[3]
 			led-gpios = <&gpio2 4 GPIO_ACTIVE_HIGH>; // Example: GPIO2.IO[4]
 
-			status = "okay";
+			status = "disabled";
 		};
 
 		button-semaphore {
 			compatible = "lkss,gpio-button-semaphore";
 			/* TODO: Add button and led GPIOs */
 
-			status = "okay";
+			status = "disabled";
 		};
 	};
 };
