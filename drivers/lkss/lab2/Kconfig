@@ -15,4 +15,11 @@ config LKSS_DRIVERS_LAB2_EX4
 	  Compile Lab2 Ex4: Character device LED driver
 	  using gpiod and ioctl() commands
 
+config LKSS_DRIVERS_LAB2_EX5
+	tristate "Lab2 Ex5 - Character device LED driver with blinking."
+	default n
+	help
+	  Compile Lab2 Ex5: Character device LED driver
+	  using gpiod and a kernel timer to implement blinking.
+
 endif # LKSS_DRIVERS_LAB2
