@@ -32,6 +32,14 @@
 	lkss-bus {
 		compatible = "simple-bus";
 
+		lkss-device {
+			compatible = "lkss,my-lkss-device";
+			myint = <42>;
+			mystring = "hello";
+
+			status = "disabled";
+		};
+
 		button {
 			compatible = "lkss,gpio-button";
 			gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>; // Example: GPIO2.IO[3]
