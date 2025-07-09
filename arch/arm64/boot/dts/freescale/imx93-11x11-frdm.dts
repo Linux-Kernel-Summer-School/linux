@@ -64,13 +64,6 @@
 			status = "disabled";
 		};
 
-		button-semaphore {
-			compatible = "lkss,gpio-button-semaphore";
-			/* TODO: Add button and led GPIOs */
-
-			status = "disabled";
-		};
-
 		snake {
 			compatible = "lkss,snake";
 			pinctrl-names = "default";
