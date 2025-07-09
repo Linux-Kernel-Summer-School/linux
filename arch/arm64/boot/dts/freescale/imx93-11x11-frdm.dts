@@ -15,16 +15,6 @@
 		stdout-path = &lpuart1;
 	};
 
-	lkss-bus {
-		compatible = "simple-bus";
-
-		gpio-led {
-			compatible = "lkss,gpio-led";
-			gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
-			status = "disabled";
-		};
-	};
-
 	reserved-memory {
 		#address-cells = <2>;
 		#size-cells = <2>;
@@ -61,6 +51,12 @@
 			button-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;// Example: GPIO2.IO[3]
 			led-gpios = <&gpio2 4 GPIO_ACTIVE_HIGH>; // Example: GPIO2.IO[4]
 
+			status = "disabled";
+		};
+
+		gpio-led {
+			compatible = "lkss,gpio-led";
+			gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
 			status = "disabled";
 		};
 
