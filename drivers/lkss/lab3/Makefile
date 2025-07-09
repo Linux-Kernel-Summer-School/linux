@@ -2,4 +2,4 @@
 
 obj-$(CONFIG_LKSS_DRIVERS_LAB3) += ex1/button.o
 obj-$(CONFIG_LKSS_DRIVERS_LAB3) += ex2/button_led.o
-obj-$(CONFIG_LKSS_DRIVERS_LAB3) += ex3/button_semaphore.o
+obj-$(CONFIG_LKSS_DRIVERS_LAB3) += ex3/snake.o
