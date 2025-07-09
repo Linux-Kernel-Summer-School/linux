@@ -70,6 +70,18 @@
 
 			status = "disabled";
 		};
+
+		snake {
+			compatible = "lkss,snake";
+			pinctrl-names = "default";
+			pinctrl-0 = <&pinctrl_snake>;
+			up-gpios = <&gpio2 2 GPIO_ACTIVE_HIGH>;
+			down-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
+			left-gpios = <&gpio2 17 GPIO_ACTIVE_HIGH>;
+			right-gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;
+
+			status = "disabled";
+		};
 	};
 };
 
@@ -376,4 +388,14 @@
 			MX93_PAD_SD1_STROBE__USDHC1_STROBE      0x15fe
 		>;
 	};
+
+	pinctrl_snake: snakegrp {
+		fsl,pins = <
+			MX93_PAD_GPIO_IO02__GPIO2_IO02		0x31e
+			MX93_PAD_GPIO_IO03__GPIO2_IO03		0x31e
+			MX93_PAD_GPIO_IO17__GPIO2_IO17		0x31e
+			MX93_PAD_GPIO_IO27__GPIO2_IO27		0x31e
+		>;
+	};
+
 };
