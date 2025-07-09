@@ -56,11 +56,20 @@ irqreturn_t snake_isr(int irq, void *dev_id)
 
 static int snake_open(struct inode *inode, struct file *file)
 {
+	unsigned long flags;
 	struct snake_data *data =
 		container_of(inode->i_cdev, struct snake_data, cdev);
 
 	file->private_data = data;
 
+     	spin_lock_irqsave(&data->btn_q.lock, flags);
+
+	data->btn_q.head = 0;
+	data->btn_q.tail = 0;
+	data->btn_q.size = 0;
+
+	spin_unlock_irqrestore(&data->btn_q.lock, flags);
+	
 	return 0;
 }
 
