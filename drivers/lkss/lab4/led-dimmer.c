@@ -48,6 +48,8 @@ static long led_dimmer_ioctl(struct file *file, unsigned int cmd, unsigned long 
 		return -EINVAL;
 	}
 
+	duty_cycle = arg;
+
 	/* TODO 2: initialize the PWM state */
 	/* TODO 2: set the duty cycle to the requested value */
 	/* TODO 2: apply the current state */
