@@ -1346,14 +1346,22 @@ static int evict_linked_inode(struct inode *inode)
 	write_inode_now(inode, 1);
 	gfs2_ail_flush(ip->i_gl, 0);
 
-	ret = gfs2_trans_begin(sdp, 0, sdp->sd_jdesc->jd_blocks);
-	if (ret)
-		return ret;
-
-	/* Needs to be done before glock release & also in a transaction */
-	truncate_inode_pages(&inode->i_data, 0);
+	if (gfs2_is_jdata(ip) &&
+	    filemap_range_needs_writeback(&inode->i_data, 0, (loff_t)-1)) {
+		/*
+		 * Allow truncate_inode_pages() -> gfs2_invalidate_folio() ->
+		 * gfs2_discard() -> gfs2_remove_from_journal() to create
+		 * revokes for jdata buffers.
+		 */
+		ret = gfs2_trans_begin(sdp, 0, sdp->sd_jdesc->jd_blocks);
+		if (ret)
+			return ret;
+		truncate_inode_pages(&inode->i_data, 0);
+		gfs2_trans_end(sdp);
+	} else {
+		truncate_inode_pages(&inode->i_data, 0);
+	}
 	truncate_inode_pages(metamapping, 0);
-	gfs2_trans_end(sdp);
 	return 0;
 }
 
