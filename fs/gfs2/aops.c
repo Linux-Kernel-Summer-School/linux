@@ -694,7 +694,7 @@ bool gfs2_release_folio(struct folio *folio, gfp_t gfp_mask)
 			if (!bd->bd_blkno && !list_empty(&bd->bd_list))
 				list_del_init(&bd->bd_list);
 			if (list_empty(&bd->bd_list))
-				kmem_cache_free(gfs2_bufdata_cachep, bd);
+				kmem_cache_free(sdp->sd_bufdata, bd);
 		}
 
 		bh = bh->b_this_page;

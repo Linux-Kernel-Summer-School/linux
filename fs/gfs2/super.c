@@ -639,6 +639,7 @@ restart:
 	/*  Take apart glock structures and buffer lists  */
 	gfs2_gl_hash_clear(sdp);
 	iput(sdp->sd_inode);
+	kmem_cache_destroy(sdp->sd_bufdata);
 	gfs2_delete_debugfs_file(sdp);
 
 	gfs2_sys_fs_del(sdp);

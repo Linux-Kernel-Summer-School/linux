@@ -894,7 +894,7 @@ void gfs2_drain_revokes(struct gfs2_sbd *sdp)
 		list_del_init(&bd->bd_list);
 		gl = bd->bd_gl;
 		gfs2_glock_remove_revoke(gl);
-		kmem_cache_free(gfs2_bufdata_cachep, bd);
+		kmem_cache_free(sdp->sd_bufdata, bd);
 	}
 }
 
