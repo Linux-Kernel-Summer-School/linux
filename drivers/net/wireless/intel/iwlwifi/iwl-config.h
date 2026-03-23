@@ -85,7 +85,6 @@ enum iwl_nvm_type {
 #define IWL_WATCHDOG_DISABLED	0
 #define IWL_DEF_WD_TIMEOUT	2500
 #define IWL_LONG_WD_TIMEOUT	10000
-#define IWL_MAX_WD_TIMEOUT	120000
 
 #define IWL_DEFAULT_MAX_TX_POWER 22
 #define IWL_TX_CSUM_NETIF_FLAGS (NETIF_F_IPV6_CSUM | NETIF_F_IP_CSUM |\
@@ -416,7 +415,9 @@ struct iwl_mac_cfg {
  * @vht_mu_mimo_supported: VHT MU-MIMO support
  * @nvm_type: see &enum iwl_nvm_type
  * @uhb_supported: ultra high band channels supported
+ * @unii9_supported: UNII-9 channels supported
  * @eht_supported: EHT supported
+ * @uhr_supported: UHR supported
  * @num_rbds: number of receive buffer descriptors to use
  *	(only used for multi-queue capable devices)
  *
@@ -450,7 +451,9 @@ struct iwl_rf_cfg {
 	    lp_xtal_workaround:1,
 	    vht_mu_mimo_supported:1,
 	    uhb_supported:1,
-	    eht_supported:1;
+	    unii9_supported:1,
+	    eht_supported:1,
+	    uhr_supported:1;
 	u8 valid_tx_ant;
 	u8 valid_rx_ant;
 	u8 non_shared_ant;
@@ -745,7 +748,8 @@ extern const struct iwl_rf_cfg iwl_rf_fm_160mhz;
 #define iwl_rf_wh iwl_rf_fm
 #define iwl_rf_wh_160mhz iwl_rf_fm_160mhz
 extern const struct iwl_rf_cfg iwl_rf_wh_non_eht;
-#define iwl_rf_pe iwl_rf_fm
+extern const struct iwl_rf_cfg iwl_rf_pe;
+#define iwl_rf_pe_no_uhr iwl_rf_fm
 #endif /* CONFIG_IWLMLD */
 
 #endif /* __IWL_CONFIG_H__ */
